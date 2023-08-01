@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragments.MusicDetailFragment"
+
+    >
+
+    <TextView
+        android:id="@+id/songTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text = "Jitna bhi waqt ye Hum ne jesay bhi ft. Abdullah Qureshi"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:scrollHorizontally="true"
+        android:gravity="start"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/songArtist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/songTitle"
+        app:layout_constraintStart_toStartOf="@id/songTitle"
+        app:layout_constraintEnd_toEndOf="@id/songTitle"
+        tools:text = "Unknown Artist"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:layout_margin="5dp"
+        />
+
+  <ImageView
+      android:id="@+id/songThumbnail"
+      android:layout_width="match_parent"
+      android:layout_height="450dp"
+      android:src="@drawable/ic_disc"
+      app:layout_constraintTop_toBottomOf="@+id/songArtist"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_marginTop="10dp"
+      android:scaleType="center"
+
+      />
+
+    <LinearLayout
+        android:id="@+id/controlBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/songThumbnail"
+        android:layout_marginTop="10dp"
+        >
+        <TextView
+            android:id="@+id/playerCurrentTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:text="00:00"
+            android:textColor="@android:color/white" />
+        <SeekBar
+            android:id="@+id/playerSeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:id="@+id/playerTotalTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:text="00:00"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/playBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/controlBarLayout"
+        android:layout_marginTop="20dp"
+        >
+
+
+        <ImageView
+            android:id="@+id/loopButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_loop"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:layout_gravity="center"
+            />
+
+        <ImageView
+            android:id="@+id/backwardButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_backwards"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            />
+
+
+        <ImageView
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_play_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:layout_weight="1"
+            />
+
+        <ImageView
+            android:id="@+id/forwardButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_forward"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="15dp"
+            />
+
+        <ImageView
+            android:id="@+id/shuffleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_shuffle"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:layout_gravity="center"
+            />
+
+
+    </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/playBarLayout"
+        app:layout_constraintVertical_bias="0.578"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/animation" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
